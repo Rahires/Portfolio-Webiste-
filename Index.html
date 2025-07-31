@@ -2,235 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio of Sahebrao Shivaji Rahire, a Computer Science student and aspiring web developer." />
   <title>Sahebrao Rahire | CS Student Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" />
   <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Added for marquee and button styling */
+    .marquee-container {
+      background: #0a74da;
+      color: white;
+      padding: 10px 0;
+      font-weight: bold;
+      font-size: 1.1rem;
     }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #2c3e50, #4ca1af);
-      color: #f0f0f0;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    header {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px 0;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-
-    header .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .profile-pic {
-      border-radius: 50%;
-      width: 70px;
-      height: 70px;
-      object-fit: cover;
-      border: 3px solid #4ca1af;
-      box-shadow: 0 0 15px #4ca1af;
-      margin-right: 15px;
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-      color: #e0f7fa;
-      flex: 1;
-      min-width: 250px;
-    }
-
-    header p {
-      font-style: italic;
-      color: #cfd8dc;
-      flex: 1 1 100%;
-      margin-top: 5px;
-      margin-bottom: 10px;
-    }
-
-    nav {
-      flex: 1 1 100%;
-      margin-top: 5px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    nav a {
-      color: #b2ebf2;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    nav a:hover {
-      background-color: #4ca1af;
-      color: #fff;
-      box-shadow: 0 0 8px #4ca1af;
-    }
-
-    marquee {
-      margin-left: 10px;
-      border: 2px solid #4ca1af;
-      border-radius: 6px;
-      padding: 4px 12px;
-      box-shadow: 0 0 15px #4ca1af;
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-
     .resume-button {
-      color: #00e5ff !important;
-      font-weight: 700;
-      font-size: 1rem;
-      text-shadow: 0 0 5px #00e5ff;
-      padding: 6px 16px;
-      border-radius: 8px;
-      background: linear-gradient(45deg, #00b8d4, #00e5ff);
-      transition: background 0.4s ease, box-shadow 0.4s ease;
       display: inline-block;
+      padding: 8px 15px;
+      margin-top: 10px;
+      background-color: #0a74da;
+      color: white;
       text-decoration: none;
-    }
-
-    .resume-button:hover {
-      background: linear-gradient(45deg, #00e5ff, #00b8d4);
-      box-shadow: 0 0 20px #00e5ff, 0 0 10px #00b8d4;
-      color: #004d40 !important;
-    }
-
-    main.container {
-      padding-top: 160px; /* For fixed header space */
-      padding-bottom: 60px;
-      background: rgba(0, 0, 0, 0.4);
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(76, 161, 175, 0.7);
-    }
-
-    section {
-      margin-bottom: 40px;
-      padding: 10px 20px;
-      border-bottom: 1px solid #4ca1af;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      color: #00e5ff;
-      margin-bottom: 15px;
-      text-shadow: 0 0 10px #00e5ff;
-    }
-
-    .project {
-      background-color: rgba(255, 255, 255, 0.07);
-      padding: 15px 20px;
-      border-radius: 8px;
-      margin-bottom: 15px;
+      border-radius: 5px;
+      font-weight: bold;
       transition: background-color 0.3s ease;
     }
-
-    .project:hover {
-      background-color: rgba(0, 229, 255, 0.15);
-      box-shadow: 0 0 10px #00e5ff;
+    .resume-button:hover {
+      background-color: #084d9e;
     }
-
-    .project h3 {
-      color: #b2ebf2;
-      margin-bottom: 6px;
-    }
-
-    ul.skills-list,
-    ul.certificates-list {
-      list-style: none;
-      columns: 2;
-      column-gap: 30px;
-    }
-
-    ul.skills-list li,
-    ul.certificates-list li {
-      padding: 6px 0;
-      font-weight: 600;
-      color: #ccefff;
-      cursor: default;
-    }
-
-    ul.certificates-list a {
-      color: #81d4fa;
-      text-decoration: none;
-      font-weight: 700;
-      transition: color 0.3s ease;
-    }
-
-    ul.certificates-list a:hover {
-      color: #00e5ff;
-      text-shadow: 0 0 8px #00e5ff;
-    }
-
-    #contact p {
-      margin-bottom: 10px;
-    }
-
-    #contact a {
-      color: #80deea;
+    nav a {
+      margin-right: 15px;
+      color: #0a74da;
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s ease;
     }
-
-    #contact a:hover {
-      color: #00bcd4;
-      text-shadow: 0 0 6px #00bcd4;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px 10px;
-      background: rgba(0, 0, 0, 0.6);
-      color: #90caf9;
-      font-size: 0.9rem;
-      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
-      margin-top: auto;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 600px) {
-      ul.skills-list,
-      ul.certificates-list {
-        columns: 1;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      
-      header h1 {
-        font-size: 1.4rem;
-      }
+    nav a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -239,19 +46,23 @@
     <div class="container">
       <img src="profile.jpg" alt="Sahebrao Rahire" class="profile-pic" />
       <h1>Sahebrao Shivaji Rahire</h1>
-      <p>Computer Science Student | Aspiring Web Developer | Ethical Hacking & Cybersecurity Enthusiast</p>
+      <p>Computer Science Student | Aspiring Web Developer | Aspiring ethical hacker and cybersecurity professional</p>
       <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#certificates">Certificates</a>
         <a href="#contact">Contact</a>
-        <marquee behavior="scroll" direction="left" scrollamount="5" style="display:inline-block; vertical-align: middle; margin-left:10px; border: 2px solid #4ca1af; border-radius: 6px; padding: 4px 12px; box-shadow: 0 0 15px #4ca1af; background-color: rgba(255, 255, 255, 0.1);">
-          <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-button">Resume</a>
-        </marquee>
       </nav>
     </div>
   </header>
+
+  <!-- Marquee for Resume -->
+  <div class="marquee-container">
+    <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
+      Download my <a href="Resume.pdf" target="_blank" class="resume-button" style="color: white; padding: 5px 10px; border-radius: 3px; background-color: #ff6600;">Resume</a> to know more!
+    </marquee>
+  </div>
 
   <main class="container">
     <section id="about">
@@ -267,10 +78,16 @@
       <div class="project">
         <h3>Personal Portfolio Website</h3>
         <p>A responsive HTML/CSS site showcasing my skills and projects.</p>
+        <p>
+          <a href="https://github.com/Rahires/portfolio-website" target="_blank" rel="noopener noreferrer" class="resume-button">View on GitHub</a>
+        </p>
       </div>
       <div class="project">
         <h3>Network Scanning Tool</h3>
         <p>A simple scanner built using Bash scripting and Nmap for ethical hacking practice.</p>
+        <p>
+          <a href="https://github.com/Rahires/Network-Scanning-Script-with-Firewall-Evasion-technique-" target="_blank" rel="noopener noreferrer" class="resume-button">View on GitHub</a>
+        </p>
       </div>
     </section>
 
@@ -306,8 +123,8 @@
         </li>
         <li>
           <a href="https://drive.google.com/drive/folders/1kQ5QaDb8LKmJ1362sD75onrCf27DO6dl?usp=sharing" target="_blank" rel="noopener noreferrer">
-            <strong>All Cyber Security Certificates (Google Drive)</strong>
-          </a> – Eduskill, Cisco & Others (2025)
+            <strong>All Certificates</strong>
+          </a> – Collection on Google Drive
         </li>
       </ul>
     </section>
@@ -316,12 +133,9 @@
       <h2>Contact</h2>
       <p>Email: <a href="mailto:rahires818@gmail.com">rahires818@gmail.com</a></p>
       <p>Phone: <a href="tel:+919284488740">+91 92844 88740</a></p>
-      <p>GitHub (Main): <a href="https://github.com/Rahires007" target="_blank">github.com/Rahires007</a></p>
-      <p>GitHub (Alt): <a href="https://github.com/Rahires" target="_blank">github.com/Rahires</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/rahires" target="_blank">linkedin.com/in/rahires</a></p>
-      <marquee behavior="alternate" scrollamount="3" style="margin-top: 10px; border: 2px solid #4ca1af; border-radius: 6px; padding: 4px 12px; box-shadow: 0 0 15px #4ca1af; background-color: rgba(255, 255, 255, 0.1);">
-        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-button">Download Resume (PDF)</a>
-      </marquee>
+      <p>GitHub (Main): <a href="https://github.com/Rahires007" target="_blank" rel="noopener noreferrer">github.com/Rahires007</a></p>
+      <p>GitHub (Alt): <a href="https://github.com/Rahires" target="_blank" rel="noopener noreferrer">github.com/Rahires</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/rahires" target="_blank" rel="noopener noreferrer">linkedin.com/in/rahires</a></p>
     </section>
   </main>
 
