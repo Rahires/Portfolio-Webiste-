@@ -8,14 +8,51 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" />
   <style>
-    /* Added for marquee and button styling */
-    .marquee-container {
-      background: #0a74da;
-      color: white;
-      padding: 10px 0;
-      font-weight: bold;
-      font-size: 1.1rem;
+    /* Base styles */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #333;
     }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px 20px;
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid #0a74da;
+      object-fit: cover;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: #0a74da;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h2 {
+      color: #0a74da;
+      margin-top: 40px;
+    }
+
     .resume-button {
       display: inline-block;
       padding: 8px 15px;
@@ -27,26 +64,93 @@
       font-weight: bold;
       transition: background-color 0.3s ease;
     }
+
     .resume-button:hover {
       background-color: #084d9e;
     }
-    nav a {
-      margin-right: 15px;
-      color: #0a74da;
-      text-decoration: none;
-      font-weight: 600;
+
+    .skills-list, .certificates-list {
+      list-style-type: square;
+      padding-left: 20px;
     }
-    nav a:hover {
-      text-decoration: underline;
+
+    /* ✅ Replacing deprecated marquee with modern animation */
+    .marquee-container {
+      background: #0a74da;
+      overflow: hidden;
+      white-space: nowrap;
+      color: white;
     }
+
+    .marquee-text {
+      display: inline-block;
+      padding: 10px 0;
+      animation: scroll-left 15s linear infinite;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    @keyframes scroll-left {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+
+    /* ✅ Responsive design */
+    @media (max-width: 768px) {
+      .profile-pic {
+        width: 100px;
+        height: 100px;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .container {
+        padding: 15px;
+      }
+    }
+
+    /* ✅ Optional dark mode support */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #111;
+        color: #eee;
+      }
+
+      .resume-button {
+        background-color: #007bff;
+      }
+
+      .marquee-container {
+        background-color: #1a1a1a;
+      }
+
+      nav a {
+        color: #59a6ff;
+      }
+
+      h2 {
+        color: #59a6ff;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #f4f4f4;
+      margin-top: 40px;
+    }
+
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <img src="profile.jpg" alt="Sahebrao Rahire" class="profile-pic" />
+      <img src="profile.jpg" alt="Profile photo of Sahebrao Rahire" class="profile-pic" />
       <h1>Sahebrao Shivaji Rahire</h1>
-      <p>Computer Science Student | Aspiring Web Developer | Aspiring ethical hacker and cybersecurity professional</p>
+      <p>Computer Science Student | Aspiring Web Developer | Aspiring Ethical Hacker and Cybersecurity Professional</p>
       <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -57,11 +161,11 @@
     </div>
   </header>
 
-  <!-- Marquee for Resume -->
+  <!-- ✅ Modern Marquee -->
   <div class="marquee-container">
-    <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
-      Download my <a href="Resume.pdf" target="_blank" class="resume-button" style="color: white; padding: 5px 10px; border-radius: 3px; background-color: #ff6600;">Resume</a> to know more!
-    </marquee>
+    <div class="marquee-text">
+      📄 Download my <a href="Resume.pdf" target="_blank" class="resume-button">Resume</a> to know more!
+    </div>
   </div>
 
   <main class="container">
@@ -78,16 +182,12 @@
       <div class="project">
         <h3>Personal Portfolio Website</h3>
         <p>A responsive HTML/CSS site showcasing my skills and projects.</p>
-        <p>
-          <a href="https://github.com/Rahires/Portfolio-Webiste-.git" target="_blank" rel="noopener noreferrer" class="resume-button">View on GitHub</a>
-        </p>
+        <a href="https://github.com/Rahires/Portfolio-Webiste-.git" target="_blank" class="resume-button">View on GitHub</a>
       </div>
       <div class="project">
         <h3>Network Scanning Tool</h3>
         <p>A simple scanner built using Bash scripting and Nmap for ethical hacking practice.</p>
-        <p>
-          <a href="https://github.com/Rahires/Network-Scanning-Script-with-Firewall-Evasion-technique-" target="_blank" rel="noopener noreferrer" class="resume-button">View on GitHub</a>
-        </p>
+        <a href="https://github.com/Rahires/Network-Scanning-Script-with-Firewall-Evasion-technique-" target="_blank" class="resume-button">View on GitHub</a>
       </div>
     </section>
 
@@ -112,19 +212,19 @@
       <h2>Certificates</h2>
       <ul class="certificates-list">
         <li>
-          <a href="https://www.netacad.com/certificates?issuanceId=bef6011f-e792-43aa-870c-d1670836dae5" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.netacad.com/certificates?issuanceId=bef6011f-e792-43aa-870c-d1670836dae5" target="_blank">
             <strong>Introduction to Cyber Security</strong>
           </a> – Cisco Networking Academy (2025)
         </li>
         <li>
-          <a href="https://www.netacad.com/certificates?issuanceId=c3ad1667-f839-4fd2-8c66-39c35a606ade" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.netacad.com/certificates?issuanceId=c3ad1667-f839-4fd2-8c66-39c35a606ade" target="_blank">
             <strong>Networking Basics</strong>
           </a> – Cisco Networking Academy (2025)
         </li>
         <li>
-          <a href="https://drive.google.com/drive/folders/1kQ5QaDb8LKmJ1362sD75onrCf27DO6dl?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <a href="https://drive.google.com/drive/folders/1kQ5QaDb8LKmJ1362sD75onrCf27DO6dl?usp=sharing" target="_blank">
             <strong>All Certificates</strong>
-          </a> – Collection on Google Drive 
+          </a> – Collection on Google Drive
         </li>
       </ul>
     </section>
@@ -133,9 +233,9 @@
       <h2>Contact</h2>
       <p>Email: <a href="mailto:rahires818@gmail.com">rahires818@gmail.com</a></p>
       <p>Phone: <a href="tel:+919284488740">+91 92844 88740</a></p>
-      <p>GitHub (Main): <a href="https://github.com/Rahires007" target="_blank" rel="noopener noreferrer">github.com/Rahires007</a></p>
-      <p>GitHub (Alt): <a href="https://github.com/Rahires" target="_blank" rel="noopener noreferrer">github.com/Rahires</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/rahires" target="_blank" rel="noopener noreferrer">linkedin.com/in/rahires</a></p>
+      <p>GitHub (Main): <a href="https://github.com/Rahires007" target="_blank">github.com/Rahires007</a></p>
+      <p>GitHub (Alt): <a href="https://github.com/Rahires" target="_blank">github.com/Rahires</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/rahires" target="_blank">linkedin.com/in/rahires</a></p>
     </section>
   </main>
 
